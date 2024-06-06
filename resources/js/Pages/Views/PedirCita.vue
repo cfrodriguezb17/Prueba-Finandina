@@ -3,7 +3,7 @@
     <!-- Barra superior -->
     <div class="flex items-center justify-between bg-green-500 p-3 pl-4">
       <!-- Flecha de regreso -->
-      <Link :href="route('home')">
+      <Link :href="route('home2')">
       <button class="text-white text-3xl"><i class="fa-solid fa-arrow-left"></i></button>
       </Link>
     </div>

@@ -44,7 +44,12 @@ Route::post('/appointments', [AppointmentController::class, 'store'])->name('cit
 Route::get('/appointments', [AppointmentController::class, 'index'])->name('cita.info');
 Route::get('/appointment/create', [AppointmentController::class, 'create'])->name('cita.render');
 Route::get('/appointment/list', [AppointmentController::class, 'list'])->name('home');
+Route::get('/appointment/list2', [AppointmentController::class, 'list'])->name('home2');
 
 
 use App\Http\Controllers\ProductController;
 Route::get('/products', [ProductController::class, 'index'])->name('product.show');
+
+Route::get('/product', function () {
+    return Inertia::render('Views/InternaTienda');
+})->name('product');

@@ -3,7 +3,9 @@
     <!-- Barra superior -->
     <div class="flex items-center justify-between bg-green-500 p-4">
       <!-- Logo -->
-      <button @click="goBack" class="text-white text-3xl"><i class="fa-solid fa-arrow-left"></i></button>
+      <Link :href="route('product.show')">
+        <button class="text-white text-3xl"><i class="fa-solid fa-arrow-left"></i></button>
+      </Link>
       <div class="text-white text-xl cursor-pointer">
         <i class="fa-solid fa-cart-shopping"></i>
       </div>
@@ -15,7 +17,7 @@
       <div class="flex flex-col h-full">
         <!-- Imagen -->
         <div class="h-1/2">
-          <img src="/path/to/image.jpg" alt="Imagen del Producto" class="w-full h-auto">
+          <img src="../../../images/dog.png" alt="Imagen del Producto" class="w-full h-auto">
         </div>
         <!-- Detalles del Producto -->
         <div class="h-1/2 p-4">
@@ -48,16 +50,26 @@
     <div class="flex items-center justify-center bg-green-500 p-4">
       <!-- Opciones de navegación -->
       <div class="flex space-x-4">
-        <button @click="navigateTo('mascota')" class="text-white">Mascota</button>
-        <button @click="navigateTo('calendario')" class="text-white">Calendario</button>
-        <button @click="navigateTo('tienda')" class="text-white">Tienda</button>
+        <Link :href="route('pet.info')">
+        <button class="text-white">Mascota</button>
+        </Link>
+        <Link :href="route('home')">
+        <button class="text-white">Calendario</button>
+        </Link>
+        <Link :href="route('product.show')">
+        <button class="text-white">Tienda</button>
+        </Link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { Link } from '@inertiajs/vue3';
 export default {
+  components: {
+    Link
+  }
   // Lógica del componente
 };
 </script>

@@ -5,9 +5,11 @@
       <!-- Logo -->
       <img src="../../../images/rewow-logo.png" alt="Logo" class="h-8">
       <!-- Barra de navegación -->
+      <Link :href="route('product')">
       <div class="text-white text-xl cursor-pointer">
         <i class="fa-solid fa-cart-shopping"></i>
       </div>
+      </Link>
     </div>
 
     <!-- Contenido principal - Lista de citas -->
@@ -16,7 +18,7 @@
         <!-- Elemento de la grilla -->
         <div v-for="producto in productos" :key="producto.id" class="bg-white p-4 shadow-md rounded-md">
           <!-- Imagen del producto -->
-          <img :src="producto.imagen" :alt="producto.nombre" class="w-full h-40 object-cover rounded-md mb-2">
+          <img src="../../../images/1.png" :alt="producto.nombre" class="w-full h-40 object-cover rounded-md mb-2">
           <!-- Precio -->
           <p class="text-green-500 font-semibold">{{ producto.precio }}</p>
           <!-- Nombre del producto -->
@@ -52,7 +54,7 @@ export default {
   data() {
     return {
       productos: [
-        { id: 1, nombre: 'Producto 1', precio: '$10.00', imagen: '/path/to/image1.jpg' },
+        { id: 1, nombre: 'Producto 1', precio: '$10.00', imagen: '../../../images/rewow-logo.png' },
         { id: 2, nombre: 'Producto 2', precio: '$20.00', imagen: '/path/to/image2.jpg' },
         // Agrega más productos según sea necesario
       ]

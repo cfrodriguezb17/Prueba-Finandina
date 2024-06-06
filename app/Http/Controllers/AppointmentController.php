@@ -25,7 +25,7 @@ class AppointmentController extends Controller
     //     return Inertia::render('Views/Citas');
         $appointment = new Appointment($request->all());
         $appointment->save();
-        return redirect()->route('home');
+        return redirect(route('home2'));
     }
 
     public function index()
@@ -41,6 +41,13 @@ class AppointmentController extends Controller
         return inertia('Views/PedirCita', ['pets' => $pets]);
     }
     public function list()
+    {
+        $userId = Auth::id();
+        $petIds = Pet::where('user_id', $userId)->pluck('id');
+        $appointments = Appointment::whereIn('pet_id', $petIds)->get();
+        return inertia('Views/Citas', ['appointments' => $appointments]);
+    }
+    public function list2()
     {
         $userId = Auth::id();
         $petIds = Pet::where('user_id', $userId)->pluck('id');
